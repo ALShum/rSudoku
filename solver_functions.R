@@ -92,11 +92,3 @@ dfs = function(puzzle, cand) {
   
   return(NULL)
 }
-
-start.time = Sys.time()
-solveSudoku(puzzle)
-print(Sys.time() - start.time)
-
-start.time = Sys.time()
-dfs(puzzle, cand)
-print(Sys.time() - start.time)
