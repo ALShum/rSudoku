@@ -1,4 +1,6 @@
 solve_sudoku = function(puzzle) {
+  
+  #' tracks candidate values for each cell
   cand = lapply(1:81, function(x){
     if(puzzle[x]==0) 1:9
     else 0
@@ -46,6 +48,7 @@ solve_sudoku = function(puzzle) {
     list(puzzle, cand)
   }
   
+  #' Finds cell with fewest viable candidates
   find_easiest = function(cand) {
     easiest = which.min(lapply(cand, function(x){
       if(!any(x == 0)) length(x)
@@ -55,6 +58,7 @@ solve_sudoku = function(puzzle) {
     easiest
   }
   
+  #' depth first search solution
   dfs = function(puzzle, cand) {
     #prune
     pruned = prune(puzzle, cand)
